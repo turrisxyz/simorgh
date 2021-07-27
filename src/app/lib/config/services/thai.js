@@ -30,6 +30,24 @@ export const F_NOTO_SANS_THAI_BOLD = () => `
     font-display: swap;
   }`;
 
+export const F_NOTO_SERIF_THAI_REGULAR = () => `
+  @font-face {
+    font-family: Tahoma;
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifThai-Regular.woff') format('woff'), url('${fontsPath}/NotoSerifThai-Regular.eot') format('eot'), url('${fontsPath}/NotoSerifThai-Regular.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
+export const F_NOTO_SERIF_THAI_BOLD = () => `
+  @font-face {
+    font-family: Tahoma;
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifThai-Bold.woff') format('woff'), url('${fontsPath}/NotoSerifThai-Bold.eot') format('eot'), url('${fontsPath}/NotoSerifThai-Bold.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
 export const service = {
   default: {
     lang: `th`,
@@ -359,7 +377,8 @@ export const service = {
       copyrightText:
         'บีบีซี. บีบีซีไม่มีส่วนรับผิดชอบต่อเนื้อหาของเว็บไซต์ภายนอก. นโยบายของเราเรื่องการเชื่อมต่อไปยังลิงก์ภายนอก.',
     },
-    fonts: [F_NOTO_SANS_THAI_BOLD, F_NOTO_SANS_THAI_REGULAR],
+    // fonts: [F_NOTO_SANS_THAI_BOLD, F_NOTO_SANS_THAI_REGULAR],
+    fonts: [F_NOTO_SERIF_THAI_BOLD, F_NOTO_SERIF_THAI_REGULAR],
     timezone: 'Asia/Bangkok',
   },
 };
