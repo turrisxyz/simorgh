@@ -30,6 +30,24 @@ export const F_NOTO_SANS_SINHALA_BOLD = () => `
     font-display: swap;
   }`;
 
+export const F_NOTO_SERIF_SINHALA_REGULAR = () => `
+  @font-face {
+    font-family: "Iskoola Pota BBC";
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifSinhala-Regular.woff') format('woff'), url('${fontsPath}/NotoSerifSinhala-Regular.eot') format('eot'), url('${fontsPath}/NotoSerifSinhala-Regular.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
+export const F_NOTO_SERIF_SINHALA_BOLD = () => `
+  @font-face {
+    font-family: "Iskoola Pota BBC";
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifSinhala-Bold.woff') format('woff'), url('${fontsPath}/NotoSerifSinhala-Bold.eot') format('eot'), url('${fontsPath}/NotoSerifSinhala-Bold.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
 export const service = {
   default: {
     lang: `si`,
@@ -326,7 +344,8 @@ export const service = {
       ],
       copyrightText: 'BBC. බාහිර වෙබ් අඩවිවල අන්තර්ගතයට බීබීසී වගකියනු නොලැබේ.',
     },
-    fonts: [F_NOTO_SANS_SINHALA_BOLD, F_NOTO_SANS_SINHALA_REGULAR],
+    // fonts: [F_NOTO_SANS_SINHALA_BOLD, F_NOTO_SANS_SINHALA_REGULAR],
+    fonts: [F_NOTO_SERIF_SINHALA_BOLD, F_NOTO_SERIF_SINHALA_REGULAR],
     timezone: 'GMT',
     navigation: [
       {

@@ -30,6 +30,24 @@ export const F_NOTO_SANS_BENGALI_BOLD = () => `
     font-display: swap;
   }`;
 
+export const F_NOTO_SERIF_BENGALI = () => `
+  @font-face {
+    font-family: "Shonar Bangla";
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifBengali.woff') format('woff'), url('${fontsPath}/NotoSerifBengali.eot') format('eot'), url('${fontsPath}/NotoSerifBengali.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
+export const F_NOTO_SERIF_BENGALI_BOLD = () => `
+  @font-face {
+    font-family: "Shonar Bangla";
+    font-weight: 400;
+    font-style: normal;
+    src: url('${fontsPath}/NotoSerifBengali-Bold.woff') format('woff'), url('${fontsPath}/NotoSerifBengali-Bold.eot') format('eot'), url('${fontsPath}/NotoSerifBengali-Bold.ttf') format('ttf');
+    font-display: swap;
+  }`;
+
 export const service = {
   default: {
     lang: `bn`,
@@ -333,7 +351,8 @@ export const service = {
       copyrightText:
         'বিবিসি। বাইরের কোন সাইটের তথ্যের জন্য বিবিসি দায়বদ্ধ নয়।',
     },
-    fonts: [F_NOTO_SANS_BENGALI_BOLD, F_NOTO_SANS_BENGALI_REGULAR],
+    // fonts: [F_NOTO_SANS_BENGALI_BOLD, F_NOTO_SANS_BENGALI_REGULAR],
+    fonts: [F_NOTO_SERIF_BENGALI_BOLD, F_NOTO_SERIF_BENGALI],
     timezone: 'Asia/Dhaka',
     navigation: [
       {
