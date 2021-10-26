@@ -61,14 +61,6 @@ const configuration = {
   },
 };
 
-export const AMP_GEO_SCRIPT = (
-  <script
-    async
-    custom-element="amp-geo"
-    src="https://cdn.ampproject.org/v0/amp-geo-0.1.js"
-  />
-);
-
 const AmpGeo = () => (
   <amp-geo layout="nodisplay">
     <script

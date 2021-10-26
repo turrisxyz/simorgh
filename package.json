@@ -128,6 +128,7 @@
     "gnu-terry-pratchett": "0.0.2",
     "helmet": "4.6.0",
     "helmet-csp": "3.4.0",
+    "html-minifier": "^4.0.0",
     "intersection-observer": "0.12.0",
     "isarray": "2.0.5",
     "isomorphic-fetch": "3.0.0",
