@@ -79,23 +79,22 @@ const renderDocument = async ({
 
   const html = renderToString(jsx);
   const chunks = extractCriticalToChunks(html);
-  const styles = constructStyleTagsFromChunks(chunks);
-  const scriptTags = extractor.getScriptTags(extractChunk);
+  const styleTags = constructStyleTagsFromChunks(chunks);
   const helmet = Helmet.renderStatic();
   const assetOrigins = getAssetOrigins(service);
-  const resourceHints = assetOrigins
+  const resourceHintTags = assetOrigins
     .map(
       origin =>
         `<link rel="preconnect" href="${origin}" crossOrigin="anonymous" />` +
         `<link rel="dns-prefetch" href="${origin}" />`,
     )
     .join('');
-  const noJsClass = !isAmp ? 'class="no-js"' : ''; // The JS to remove the no-js class will not run on AMP, therefore only add it to canonical
+  const htmlClassNames = !isAmp ? 'class="no-js"' : ''; // The JS to remove the no-js class will not run on AMP, therefore only add it to canonical
   const htmlAttributes = helmet.htmlAttributes.toString();
-  const meta = helmet.meta.toString();
-  const title = helmet.title.toString();
-  const helmetLinkTags = helmet.link.toString();
-  const headScript = helmet.script.toString();
+  const metaTags = helmet.meta.toString();
+  const titleTag = helmet.titleTag.toString();
+  const linkTags = helmet.link.toString();
+  const headScriptTags = helmet.script.toString();
   const serialisedData = serialiseForScript(data);
   const scriptsAllowed = !isAmp;
   const ampAssets = `
@@ -108,7 +107,8 @@ const renderDocument = async ({
     ${AMP_CONSENT_JS}
     ${AMP_ANALYTICS_JS}
   `;
-  const scripts = `
+  const scriptTags = extractor.getScriptTags(extractChunk);
+  const bodyScriptTags = `
     <script>window.SIMORGH_DATA=${serialisedData}</script>
     <!--[if !IE]><!-->
     ${scriptTags}
@@ -121,20 +121,20 @@ const renderDocument = async ({
 
   const doc = `
   <!doctype html>
-    <html lang="en-GB" ${noJsClass} ${htmlAttributes}>
+    <html lang="en-GB" ${htmlClassNames} ${htmlAttributes}>
     <head>
-      ${meta}
+      ${metaTags}
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-      ${resourceHints}
-      ${title}
-      ${styles}
-      ${helmetLinkTags}
-      ${headScript}
+      ${resourceHintTags}
+      ${titleTag}
+      ${styleTags}
+      ${linkTags}
+      ${headScriptTags}
       ${isAmp ? ampAssets : ''}
     </head>
     <body ${ampGeoPendingAttrs}>
       <div id="root">${html}</div>
-      ${scriptsAllowed ? scripts : ''}
+      ${scriptsAllowed ? bodyScriptTags : ''}
     </body>
   </html>
   `;
