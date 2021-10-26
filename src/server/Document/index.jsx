@@ -80,7 +80,7 @@ const renderDocument = async ({
   const html = renderToString(jsx);
   const chunks = extractCriticalToChunks(html);
   const styles = constructStyleTagsFromChunks(chunks);
-  const modernScripts = extractor.getScriptTags(extractChunk);
+  const scriptTags = extractor.getScriptTags(extractChunk);
   const helmet = Helmet.renderStatic();
   const assetOrigins = getAssetOrigins(service);
   const resourceHints = assetOrigins
@@ -111,7 +111,7 @@ const renderDocument = async ({
   const scripts = `
     <script>window.SIMORGH_DATA=${serialisedData}</script>
     <!--[if !IE]><!-->
-    ${modernScripts}
+    ${scriptTags}
     <!--<![endif]-->
     <script>document.documentElement.classList.remove("no-js");</script>
   `;
