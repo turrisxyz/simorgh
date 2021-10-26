@@ -11649,7 +11649,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"html-minifier@npm:^4.0.0":
+"html-minifier@npm:4.0.0":
   version: 4.0.0
   resolution: "html-minifier@npm:4.0.0"
   dependencies:
@@ -18729,7 +18729,7 @@ resolve@^2.0.0-next.3:
     helmet: 4.6.0
     helmet-csp: 3.4.0
     history: 4.10.1
-    html-minifier: ^4.0.0
+    html-minifier: 4.0.0
     husky: 7.0.4
     inspectpack: 4.7.1
     intersection-observer: 0.12.0
