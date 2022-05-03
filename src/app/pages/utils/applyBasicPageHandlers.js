@@ -7,14 +7,19 @@ import withData from '#containers/PageHandlers/withData';
 import withVariant from '#containers/PageHandlers/withVariant';
 import withHashChangeHandler from '#app/containers/PageHandlers/withHashChangeHandler';
 
-const defaultValue = { addVariantHandling: false };
+const defaultValue = { addVariantHandling: false, addPageWrapper: true };
 
-export default ({ addVariantHandling } = defaultValue) =>
+export default ({ addVariantHandling, addPageWrapper } = defaultValue) =>
   pipe(
     withData,
     withError,
     withLoading,
-    withPageWrapper,
+    component => {
+      if (addPageWrapper || addPageWrapper === undefined) {
+        return withPageWrapper(component);
+      }
+      return component;
+    },
     withContexts,
     component => {
       if (addVariantHandling) {

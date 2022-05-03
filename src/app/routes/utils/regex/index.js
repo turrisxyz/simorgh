@@ -16,6 +16,7 @@ import {
   getTopicPageRegex,
   getErrorPageRegex,
   getLegacyAssetRegex,
+  getLiteCpsAssetRegex,
   getMostReadPageRegex,
   getMostReadDataRegex,
   getMostWatchedDataRegex,
@@ -66,6 +67,9 @@ export const errorPagePath = getErrorPageRegex(allServices);
 
 export const legacyAssetPagePath = getLegacyAssetRegex(allServices);
 export const legacyAssetPageDataPath = `${legacyAssetPagePath}.json`;
+
+export const liteCpsAssetPagePath = getLiteCpsAssetRegex(allServices);
+export const liteCpsAssetPageDataPath = `${liteCpsAssetPagePath}.json`;
 
 export const mostReadPagePath = getMostReadPageRegex(allServices);
 export const mostReadDataRegexPath = getMostReadDataRegex(allServices);

@@ -40,7 +40,9 @@ const fetchPageData = async ({
   const urlPath = path.startsWith('http') ? path : getUrl(path);
 
   // TODO: Remove this once testing of routing Article pages through Belfrage is complete
-  const url = isLive() ? urlPath : urlPath.replace('new_articles', 'articles');
+  const url = isLive()
+    ? urlPath
+    : urlPath.replace('new_articles', 'articles').replace('lite/', '');
 
   const effectiveTimeout = timeout || PRIMARY_DATA_TIMEOUT;
   const fetchOptions = {

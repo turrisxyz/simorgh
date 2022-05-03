@@ -55,6 +55,11 @@ export const getLegacyAssetRegex = services => {
   return `/:service(${serviceRegex}):variant(${variantRegex})?/:assetUri(${legacyAssetUriRegex}):amp(${ampRegex})?`;
 };
 
+export const getLiteCpsAssetRegex = services => {
+  const serviceRegex = getServiceRegex(services);
+  return `/:service(${serviceRegex}):variant(${variantRegex})?/lite/:assetUri(${assetUriRegex}):amp(${ampRegex})?`;
+};
+
 export const getLiveRadioRegex = services => {
   const serviceRegex = getServiceRegex(services);
   return `/:service(${serviceRegex})/:masterBrand(${radioMasterBrandRegex})/:mediaId(liveRadio):amp(${ampRegex})?`;
